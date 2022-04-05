@@ -69,9 +69,9 @@ int main()
 	//enum CompResult wynik;                                    //test CompResult
 	//wynik = eCompareString("kocham", "programowac");
 	
-	//char acSource[] = "teststring";                           //test Appendstring
-	//char acTestCompResult[MAX_STRING_LENGTH] ="qwerty";
-	//AppendString(acSource, acTestCompResult);
+	char acSource[] = "teststring";                           //test Appendstring
+	char acDestination[MAX_STRING_LENGTH] ="qwerty";
+	AppendString(acSource, acDestination);
 	
 	//char acSource[] = "teststring";
 	//ReplaceCharactersInString(acSource, 't', 'a');            //test ReplaceCharactersInString
