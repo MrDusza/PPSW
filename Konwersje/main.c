@@ -71,16 +71,30 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 			return ERROR;
 		}
 	}
+	return ERROR;
+}
+
+void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
+{
+	unsigned char ucLastCharacter;
+	
+	for(ucLastCharacter = 0 ; pcDestinationStr[ucLastCharacter] != NULL ; ucLastCharacter++)
+	{}
+		
+	UIntToHexStr (uiValue, &pcDestinationStr[ucLastCharacter]);
 }
 
 //char ucaResult[7];
 unsigned int uiValue;
+//char cDestination[100] = "kochamprogramowac";
 
 int main()
 {
 	//UIntToHexStr(0xa2c8 , ucaResult);
 	
-	eHexStringToUInt("0x1111" , &uiValue);
+	enum Result eResult = eHexStringToUInt("0xFB" , &uiValue);
 
+	//AppendUIntToString (0xfabc, cDestination);
+	
 	return 0;
 }
