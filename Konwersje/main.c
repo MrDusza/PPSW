@@ -34,24 +34,37 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 {
 	unsigned char ucNibbleCounter;
 	unsigned char ucNibbleCharacter;
-	unsigned int uiValue;
+
+	*puiValue = 0;
 	
-	if (pcStr[0] != '0' | pcStr[1] != 'x' | pcStr[6] != NULL)
+	if (pcStr[0] != '0' | pcStr[1] != 'x' | pcStr[2] == NULL )
 	{
 		return ERROR;
 	}
 	
-	for(ucNibbleCounter = 2 ; ucNibbleCounter < 6 ; ucNibbleCounter++)
+	for(ucNibbleCounter = 2 ; ucNibbleCounter < 7 ; ucNibbleCounter++)
 	{
 		ucNibbleCharacter = pcStr[ucNibbleCounter];
 		
+		if (ucNibbleCharacter == NULL)
+		{
+			return OK;
+		}
+		
+		if (ucNibbleCounter == 6)
+		{
+			return ERROR;
+		}
+		
+		*puiValue = *puiValue << 4;
+		
 		if ((ucNibbleCharacter >= 'A') && (ucNibbleCharacter <= 'F'))
 		{
-			(ucNibbleCharacter - 'A' + 10);
+			*puiValue = *puiValue | (ucNibbleCharacter - 'A' + 10);		
 		}
 		else if ((ucNibbleCharacter >= '0') && (ucNibbleCharacter <= '9'))
 		{
-			(ucNibbleCharacter - '0');
+			*puiValue = *puiValue | (ucNibbleCharacter - '0');
 		}
 		else 
 		{
@@ -60,10 +73,14 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 	}
 }
 
-char ucaResult[7];
+//char ucaResult[7];
+unsigned int uiValue;
 
 int main()
 {
-	UIntToHexStr(0xa2c8 , ucaResult);
+	//UIntToHexStr(0xa2c8 , ucaResult);
+	
+	eHexStringToUInt("0x1111" , &uiValue);
+
 	return 0;
 }
