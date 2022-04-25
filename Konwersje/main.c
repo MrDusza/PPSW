@@ -37,24 +37,19 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 
 	*puiValue = 0;
 	
-	if (pcStr[0] != '0' | pcStr[1] != 'x' | pcStr[2] == NULL )
+	if ((pcStr[0] != '0') | (pcStr[1] != 'x') | (pcStr[2] == NULL))
 	{
 		return ERROR;
 	}
 	
-	for(ucNibbleCounter = 2 ; ucNibbleCounter < 7 ; ucNibbleCounter++)
+	for(ucNibbleCounter = 2 ; pcStr[ucNibbleCounter] != NULL ; ucNibbleCounter++)
 	{
-		ucNibbleCharacter = pcStr[ucNibbleCounter];
-		
-		if (ucNibbleCharacter == NULL)
-		{
-			return OK;
-		}
-		
 		if (ucNibbleCounter == 6)
 		{
 			return ERROR;
 		}
+		
+		ucNibbleCharacter = pcStr[ucNibbleCounter];
 		
 		*puiValue = *puiValue << 4;
 		
@@ -71,7 +66,7 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 			return ERROR;
 		}
 	}
-	return ERROR;
+	return OK;
 }
 
 void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
@@ -92,7 +87,7 @@ int main()
 {
 	//UIntToHexStr(0xa2c8 , ucaResult);
 	
-	enum Result eResult = eHexStringToUInt("0xFB" , &uiValue);
+	enum Result eResult = eHexStringToUInt("0xFBG" , &uiValue);
 
 	//AppendUIntToString (0xfabc, cDestination);
 	
