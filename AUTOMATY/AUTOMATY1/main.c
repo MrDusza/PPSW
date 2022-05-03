@@ -1,5 +1,4 @@
 #include "led.h"
-#include "keyboard.h"
 
 void delay(unsigned long int uiMiliseconds)
 {
@@ -16,7 +15,6 @@ enum LedState eLedState = LED_LEFT;
 int main ()
 {	
 	LedInit();
-	KeyboardInit();
 	
 	while(1)
 	{

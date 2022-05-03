@@ -1,5 +1,4 @@
 #include "led.h"
-#include "keyboard.h"
 
 void delay(unsigned long int uiMiliseconds)
 {
@@ -18,7 +17,6 @@ unsigned char ucStepCounter;
 int main ()
 {	
 	LedInit();
-	KeyboardInit();
 	
 	ucStepCounter = 0;
 	
