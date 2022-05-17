@@ -10,10 +10,11 @@ void delay(unsigned long int uiMiliseconds)
 		for(i = 0 ; i < 7500 ; i++){}
 	}
 }
-enum LedState{STOP, TURN_RIGHT, TURN_LEFT};
+enum LedState{STOP, TURN_RIGHT, TURN_LEFT, CHANGE_TURN_LEFT,};
 enum LedState eLedState = STOP;
 
 unsigned char ucStepCounter;
+
 
 int main ()
 {	
@@ -31,6 +32,11 @@ int main ()
 					eLedState = STOP;
 				}
 				
+				else if(eKeyboardRead() == BUTTON_3)
+				{
+					eLedState = CHANGE_TURN_LEFT;
+				}
+				
 				else
 				{
 					LedStepRight();
@@ -43,7 +49,7 @@ int main ()
 				{
 					eLedState = STOP;
 				}
-				
+		
 				else
 				{
 					LedStepLeft();
@@ -61,6 +67,30 @@ int main ()
 					eLedState = TURN_LEFT;
 				}
 				break;	
+				
+			case CHANGE_TURN_LEFT:
+			
+				if(ucStepCounter > 6)
+				{
+					ucStepCounter = 0;
+					eLedState = TURN_LEFT;
+				}
+				
+				else
+				{
+					ucStepCounter++;
+					
+					if(ucStepCounter%2 == 0)
+					{
+						LedOn(0);
+					}
+					
+					else
+					{
+						LedOn(4);
+					}
+				}
+				break;		
 		}
 		delay(100);
 	}
