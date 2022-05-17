@@ -407,6 +407,11 @@
               <FileType>1</FileType>
               <FilePath>.\strings.c</FilePath>
             </File>
+            <File>
+              <FileName>decoding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\decoding.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

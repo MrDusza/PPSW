@@ -80,16 +80,16 @@ void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
 }
 
 //char ucaResult[7];
-unsigned int uiValue;
-//char cDestination[100] = "kochamprogramowac";
+//unsigned int uiValue;
+char cDestination[100] = "kochamprogramowac";
 
 int main()
 {
 	//UIntToHexStr(0xa2c8 , ucaResult);
 	
-	enum Result eResult = eHexStringToUInt("0xFBG" , &uiValue);
+	//enum Result eResult = eHexStringToUInt("0xFB11" , &uiValue);
 
-	//AppendUIntToString (0xfabc, cDestination);
+	AppendUIntToString (0xfabc, cDestination);
 	
 	return 0;
 }
