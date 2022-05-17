@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1652634767 source:c:\users\mr_dusza\desktop\ccc\testy\decoding.c
+	"strings.h"
+	"decoding.h"
+
+1652620321 c:\users\mr_dusza\desktop\ccc\testy\strings.h
+
+1652634767 c:\users\mr_dusza\desktop\ccc\testy\decoding.h
+
+1652623556 source:c:\users\mr_dusza\desktop\ccc\testy\strings.c
+	"strings.h"
+
+1652634767 source:c:\users\mr_dusza\documents\github\testy\decoding.c
+	"strings.h"
+	"decoding.h"
+
+1652620321 c:\users\mr_dusza\documents\github\testy\strings.h
+
+1652634767 c:\users\mr_dusza\documents\github\testy\decoding.h
+
+1652623556 source:c:\users\mr_dusza\documents\github\testy\strings.c
+	"strings.h"
+
+1652726370 source:c:\users\mr_dusza\documents\github\testy\main.c
+	"strings.h"
+	"decoding.h"
+	<stdio.h>
+
