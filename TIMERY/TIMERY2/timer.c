@@ -31,7 +31,7 @@ void InitTimer0Match0(unsigned int iDelayTime)
 
 void WaitOnTimer0Match0()
 {
-	T0IR = MR0_INTERRUPT_FLAG;
+	T0IR |= MR0_INTERRUPT_FLAG;
 	while ((T0IR & MR0_INTERRUPT_FLAG) == 0)
 	{}
 }
