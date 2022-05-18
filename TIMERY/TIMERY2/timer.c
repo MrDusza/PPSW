@@ -16,8 +16,7 @@ void WaitOnTimer0(unsigned int uiTime)
 {
 	T0TCR |= COUNTER_RESET;
 	T0TCR &= ~COUNTER_RESET;
-	while ((uiTime * 15) > T0TC)
-	{}
+	while ((uiTime * 15) > T0TC);
 }
 
 void InitTimer0Match0(unsigned int iDelayTime)
@@ -26,13 +25,13 @@ void InitTimer0Match0(unsigned int iDelayTime)
 	T0TCR |= COUNTER_RESET;
 	T0TCR &= ~COUNTER_RESET;
 	T0MR0 = iDelayTime * 15;
-	T0MCR |= MR0_INTERRUPT;
-	T0MCR |= MR0_RESET;
+	T0MCR |= MR0_INTERRUPT; //pozwala na ustawianie flag przerwan gdy TC osiagnie wartosc rowna MR0 
+	T0MCR |= MR0_RESET; // reset TC gdy bedzie rowne MR0
 }
 
 void WaitOnTimer0Match0()
 {
-	T0IR |= MR0_INTERRUPT_FLAG;
+	T0IR = MR0_INTERRUPT_FLAG;
 	while ((T0IR & MR0_INTERRUPT_FLAG) == 0)
 	{}
 }

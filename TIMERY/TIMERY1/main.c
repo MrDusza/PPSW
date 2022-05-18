@@ -10,6 +10,6 @@ int main()
 	while(1)
 	{
 	LedStepRight();
-	WaitOnTimer0(100000);
+	WaitOnTimer0(250000);
 	}	
 }

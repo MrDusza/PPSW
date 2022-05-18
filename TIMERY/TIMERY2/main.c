@@ -5,7 +5,7 @@
 int main()
 {
 	LedInit();
-	InitTimer0Match0(100000);
+	InitTimer0Match0(250000);
 	
 	while(1)
 	{

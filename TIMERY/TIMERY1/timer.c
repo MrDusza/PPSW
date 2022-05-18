@@ -13,7 +13,7 @@ void WaitOnTimer0(unsigned int uiTime)
 {
 	T0TCR |= COUNTER_RESET;
 	T0TCR &= ~COUNTER_RESET;
-	while ((uiTime*15) > T0TC)
+	while ((uiTime*15) != T0TC)
 	{}
 }
 
