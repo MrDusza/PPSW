@@ -89,6 +89,9 @@ int main (){
 	Timer1Interrupts_Init(20000,&Automat);
 
 	while(1){
-	 	iMainLoopCtr++;
+	 	iMainLoopCtr++;	
+		iMainLoopCtr++;	
+		iMainLoopCtr++;	
+		iMainLoopCtr++;
 	}
 }

@@ -3,9 +3,10 @@
 #include "timer_interrupts.h"
 #include "servo.h"
 
+#define SERVO_OFFSET 0
 #define DETECTOR_bm (1<<10)
 
-enum ServoState {CALLIB, IDLE, IN_PROGRESS};
+enum ServoState {CALLIB, IDLE, IN_PROGRESS, SHIFT_OFFSET};
 
 struct Servo
 {
@@ -38,15 +39,18 @@ enum State eReadDetector()
 
 void Automat()
 {	
+	
+	static unsigned char ucShiftCounter;
+	
 	switch(sServo.eState)
 	{
 		case CALLIB:
 			
 		if(eReadDetector() == ACTIVE)
 		{
-			sServo.eState = IDLE;
 			sServo.uiCurrentPosition = 0;
 			sServo.uiDesiredPosition = 0;
+			sServo.eState = SHIFT_OFFSET;
 		}
 		
 		else
@@ -54,6 +58,21 @@ void Automat()
 			LedStepLeft();
 		}
 		break;
+		
+		case SHIFT_OFFSET:
+		
+		if(ucShiftCounter < SERVO_OFFSET)
+			{
+				LedStepRight();
+				ucShiftCounter++;
+				sServo.eState = SHIFT_OFFSET;
+			}
+			else
+			{
+				ucShiftCounter = 0;
+				sServo.eState = IDLE;
+			}
+			break;
 		
 		case IDLE:
 		
@@ -105,6 +124,9 @@ void ServoCallib(void)
 
 void ServoGoTo(unsigned int uiPosition)
 {
+	while(sServo.eState != IDLE){}
 	sServo.uiDesiredPosition = uiPosition;
+	
+	
 }
 
