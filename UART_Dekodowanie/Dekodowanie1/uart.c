@@ -54,9 +54,9 @@ void UART_InitWithInt(unsigned int uiBaudRate){
    // UART0
    PINSEL0 = PINSEL0 | P0_1_RxD_UART0_PIN;                      // ustawic pina na odbiornik uart0
    U0LCR  |= m8BIT_UART_WORD_LENGTH | mDIVISOR_LATCH_ACCES_BIT; // dlugosc slowa, DLAB = 1
-   U0DLL   = ((15000000)/16)/uiBaudRate;                        // predkosc transmisji
+   U0DLL   = ((15000000)/16)/uiBaudRate;                      // predkosc transmisji
    U0LCR  &= (~mDIVISOR_LATCH_ACCES_BIT);                       // DLAB = 0
-   U0IER  |= mRX_DATA_AVALIABLE_INTERRUPT_ENABLE;               // U0IER0 wlacza przerwanie odbierania dostepnych danych dla UART0. Kontroluje równiez przerwanie limitu czasu odbioru znaku.
+   U0IER  |= mRX_DATA_AVALIABLE_INTERRUPT_ENABLE;               // U0IER0 enables the Receive Data Available interrupt for UART0. It also controls the Character Receive Time-out interrupt.
 
    // INT
    VICVectAddr1  = (unsigned long) UART0_Interrupt;             // set interrupt service routine address
