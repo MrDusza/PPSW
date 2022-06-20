@@ -3,7 +3,7 @@
 #include "timer_interrupts.h"
 #include "servo.h"
 
-#define SERVO_OFFSET 1
+#define SERVO_OFFSET 0
 #define DETECTOR_bm (1<<10)
 
 enum ServoState {CALLIB, IDLE, IN_PROGRESS, SHIFT_OFFSET};
@@ -126,7 +126,5 @@ void ServoGoTo(unsigned int uiPosition)
 {
 	while(sServo.eState != IDLE){}
 	sServo.uiDesiredPosition = uiPosition;
-	
-	
 }
 

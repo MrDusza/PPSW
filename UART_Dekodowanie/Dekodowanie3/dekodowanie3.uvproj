@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>dekodowanie1</OutputName>
+          <OutputName>dekodowanie3</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -398,6 +398,11 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
+              <FileName>decoding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\decoding.c</FilePath>
+            </File>
+            <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\led.c</FilePath>
@@ -413,6 +418,11 @@
               <FilePath>.\servo.c</FilePath>
             </File>
             <File>
+              <FileName>strings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\strings.c</FilePath>
+            </File>
+            <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\timer.c</FilePath>
@@ -426,16 +436,6 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>decoding.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\decoding.c</FilePath>
-            </File>
-            <File>
-              <FileName>strings.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\strings.c</FilePath>
             </File>
           </Files>
         </Group>
