@@ -13,7 +13,8 @@ struct Keyword
 struct Keyword asKeywordList[MAX_KEYWORD_NR]=
 {
 	{CAL,"callib"},
-	{GT, "goto" }
+	{GT, "goto" },
+	{SH, "shift"}
 	
 };
 

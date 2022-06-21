@@ -18,22 +18,29 @@ int main ()
 		{
 			Reciever_GetStringCopy(cDestination);
 			DecodeMsg(cDestination);
-		}
-		
-		if ((ucTokenNr > 0) && (asToken[0].eType == KEYWORD))
-		{
-			switch (asToken[0].uValue.eKeyword)
-			{	
-				case CAL:
-					ServoCallib();
-				break;
-				
-				case GT:
-					if (asToken[1].eType == NUMBER)
-					{
-						ServoGoTo(asToken[1].uValue.uiNumber);
-					}
-				break;
+			
+			if ((ucTokenNr > 0) && (asToken[0].eType == KEYWORD))
+			{
+				switch (asToken[0].uValue.eKeyword)
+				{	
+					case CAL:
+						ServoCallib();
+					break;
+					
+					case GT:
+						if (asToken[1].eType == NUMBER)
+						{
+							ServoGoTo(asToken[1].uValue.uiNumber);
+						}
+					break;
+					
+					case SH:
+						if (asToken[1].eType == NUMBER)
+						{
+							ServoShift(asToken[1].uValue.uiNumber);
+						}
+					break;
+				}
 			}
 		}
 	}

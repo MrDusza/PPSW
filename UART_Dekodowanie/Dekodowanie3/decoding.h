@@ -3,7 +3,7 @@
 #define MAX_KEYWORD_STRING_LTH 10
 #define MAX_KEYWORD_NR 3
 
-enum KeywordCode {CAL, GT};
+enum KeywordCode {CAL, GT, SH};
 enum TokenType {KEYWORD, NUMBER, STRING};
 
 union TokenValue
